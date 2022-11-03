@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import css from './counter.module.css';
 import IncrementButton from './IncrementButton';
 import DecrementButton from './DecrementButton';
