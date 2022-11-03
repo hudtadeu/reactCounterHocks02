@@ -1,48 +1,43 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useState } from 'react';
 
-export default class Band extends Component {
-  constructor() {
-    super();
+const BAND_MEMBERS = [
+  {
+    id: 1,
+    name: 'Neil Peart',
+    instrument: 'Bateria',
+  },
+  {
+    id: 2,
+    name: 'Alex Lifeson',
+    instrument: 'Guitarra',
+  },
+  {
+    id: 3,
+    name: 'Geddy Lee',
+    instrument: 'Baixo',
+  },
+];
 
-    this.state = {
-      bandName: 'Rush',
 
-      bandMembers: [
-        {
-          id: 1,
-          name: 'Neil Peart',
-          instrument: 'Bateria',
-        },
-        {
-          id: 2,
-          name: 'Alex Lifeson',
-          instrument: 'Guitarra',
-        },
-        {
-          id: 3,
-          name: 'Geddy Lee',
-          instrument: 'Baixo',
-        },
-      ],
-    };
-  }
+export default function Band() {
 
-  render() {
-    const { bandName, bandMembers } = this.state;
+  const [bandMembers, setBandMembers] = useState(BAND_MEMBERS)
+  const [bandName, setBandName] = useState('Rush');
 
-    return (
-      <div>
-        <h4>{bandName}</h4>
-        <ul>
-          {bandMembers.map(({ id, name, instrument }) => {
-            return (
-              <li key={id}>
-                {name} - {instrument}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    )
-  }
+
+  return (
+    <div>
+      <h4>{bandName}</h4>
+      <ul>
+        {bandMembers.map(({ id, name, instrument }) => {
+          return (
+            <li key={id}>
+              {name} - {instrument}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  )
 }
